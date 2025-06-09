@@ -128,7 +128,7 @@ The IP (**internet protocol**) comes in different versions:
 ### IPv4
 
 
-Created in 1983, specified by Jon Pastel (UCLA), etc. Involves packets, connection.
+Created in 1983, specified by Jon Postel (UCLA), etc. Involves packets, connection.
 
 We are running out of IPv4 addresses because there are only about 4 billion, and the US has most of them.
 
@@ -149,7 +149,7 @@ When routers receive packets, they look at the header, especially the destinatio
 ### IPv6
 
 
-* Created in 1996.
+* Created in 1998.
 * 128 bit IP addresses.
 * The headers are also longer.
 * A superset of IPv4; the 32 bits of IPv4 can be mapped to 32 bits of an IPv6 address, so IPv4 users can communicate with IPv6 users. The converse is not as simple but made possible with complicated translation techniques.
@@ -272,15 +272,17 @@ Added extra features to HTTP:
 1. Header compression
 2. Server push (lets the server send a response without a request)
 3. Pipelining (allows client to send multiple requests so the server can respond in batches, allows more *parallel* communication instead of having the client wait for a response every single time)
-4. Multiplexing (talk to multiple websites over one TCP channel)
+4. Multiplexing (servers can respond to the easy requests before the harder ones - responses come in out of order)
 
 **HTTP/3**
 
-Not released yet.
+Came out in 2022.
+Motivation: TCP is bad for audio/video streams. These streams don't care if there is an occasional blip in the stream
 
-1. Now based on UDP instead of TCP (motivated by the increase in voice/video services)
-2. Uses even more multiplexing
-3. Avoids jitter by avoiding **head-of-line** blocking delays; allows content after a dropped packet to be delivered (?)
+1. Built atop **QUIC** (Jim Roskind, Google, 2012) instead of TCP:
+    * Like TCPv2 + handles stream losses
+2. Prevents freezing by avoiding TCP level **head-of-line** blocking delays; allows content after a missing packet to be delivered immediately
+    * Discards out-of-order packets
 
 
 ## Data Languages

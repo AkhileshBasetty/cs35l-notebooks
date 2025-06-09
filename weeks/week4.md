@@ -282,7 +282,7 @@ IP comes in different versions, IPv4 and IPv6.
 
 **IPv4**
 
-Created in 1983, specified by Jon Pastel (UCLA), etc. Involves packets, connection.
+Created in 1983, specified by Jon Postel (UCLA), etc. Involves packets, connection.
 
 We are running out of IPv4 addresses because there are only about 4 billion, and the US has most of them.
 
@@ -301,7 +301,7 @@ When routers receive packets, they look at the header, especially the destinatio
 
 **IPv6**
 
-- Created in 1996.
+- Created in 1998.
 - 128 bit IP addresses.
 - The headers are also longer.
 - A superset of IPv4; the 32 bits of IPv4 can be mapped to 32 bits of an IPv6 address, so IPv4 users can communicate with IPv6 users. The converse is not as simple but made possible with complicated translation techniques.
